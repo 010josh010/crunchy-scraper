@@ -1,9 +1,9 @@
+'use strict'; 
+
 const express = require('express'); 
 const bodyParser = require('body-parser'); 
 const path = require('path'); 
-const mongoose = require('mongoose'); 
-const cheerio = require('cheerio'); 
-const scraper = require('./services/scrape.js'); 
+const mongoose = require('mongoose');  
 const methodOverride = require('method-override');
 const exphbs = require('express-handlebars');
 
@@ -12,7 +12,7 @@ const exphbs = require('express-handlebars');
 const app = express(); 
 const PORT = 9001;  
 
-//middleware 
+/*middleware*/  
 //for body parser 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended:true})); 
@@ -32,16 +32,9 @@ app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
 
 //export routes from router 
-
 const mainController = require('./controllers/mainController.js'); 
 app.use('/' , mainController); 
 
 
 //listening for connections 
 app.listen(PORT , _=> console.log('listening on port' , PORT)); 
-
-
-let scrape = scraper().then(function(s){console.log(s)}); 
-
-
-

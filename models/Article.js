@@ -12,9 +12,24 @@ const ArticleSchema = new Schema({
       required:true
    }, 
 
+   description:{
+      type:String, 
+      trim:true
+   }, 
+
    img:{
       type:String, 
       trim:true 
+   }, 
+
+   author:{
+      type:String, 
+      trim:true
+   }, 
+
+   postDate:{
+      type:String, 
+      trim:true
    }, 
 
    link:{
@@ -29,6 +44,13 @@ const ArticleSchema = new Schema({
       required:true
    }, 
 
+   comments: [{
+    // Store ObjectIds in the array
+    type: Schema.Types.ObjectId,
+    // The ObjectIds will refer to the ids in the Comment model
+    ref: 'Comment'
+  }], 
+
    articleCreated:{
       type: Date, 
       default: Date.now() 
@@ -42,7 +64,7 @@ ArticleSchema.methods.returnTitleAndDate = _=>{
 }
 
 // Create the "User" model with our UserSchema schema
-var Article = mongoose.model("Article", ArticleSchema);
+const Article = mongoose.model("Article", ArticleSchema);
 
 // Export the User model, so it can be used in server.js with a require
 module.exports = Article;

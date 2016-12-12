@@ -6,6 +6,7 @@ const path = require('path');
 const mongoose = require('mongoose');  
 const methodOverride = require('method-override');
 const exphbs = require('express-handlebars');
+const helmet = require('helmet'); 
 
 
 //express init and port 
@@ -13,7 +14,7 @@ const app = express();
 const PORT = 9001;  
 
 
-/*middleware*/  
+/*middleware---------------------*/  
 //for body parser 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended:true})); 
@@ -28,6 +29,11 @@ app.engine('handlebars', exphbs({
 	defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
+
+//for express security 
+app.use(helmet()); 
+
+/*end middleare--------------------*/ 
 
 //for serving static content 
 app.use(express.static(path.join(__dirname, 'public')));

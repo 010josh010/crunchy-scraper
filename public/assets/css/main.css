@@ -1,6 +1,234 @@
-@import url('https://fonts.googleapis.com/css?family=Neucha');
+@import url('https://fonts.googleapis.com/css?family=Neucha|Wendy+One|Mouse+Memoirs|Droid+Sans');
 
 
-body{
+.logo {
+	width:100%;
+	text-align: center; 
+	margin:10px auto;
+	font-size:2em;
 	font-family: 'Neucha', sans-serif;
+}
+
+.logo img {
+	height:50px;
+	width:50px;
+}
+
+-webkit-@keyframes fadeIn{
+	0% {opacity: 0 }; 
+	50% {opacity: .5}; 
+	100% {opacity:  1}; 
+}
+
+-ms-@keyframes fadeIn{
+	0% {opacity: 0 }; 
+	50% {opacity: .5}; 
+	100% {opacity:  1}; 
+}
+
+-moz-@keyframes fadeIn{
+	0% {opacity: 0 }; 
+	50% {opacity: .5}; 
+	100% {opacity:  1}; 
+}
+
+-o-@keyframes fadeIn{
+	0% {opacity: 0 }; 
+	50% {opacity: .5}; 
+	100% {opacity:  1}; 
+}
+
+@keyframes fadeIn{
+	0% {opacity: 0 }; 
+	50% {opacity: .5}; 
+	100% {opacity:  1}; 
+}
+
+-webkit-@keyframes bubble {
+	0% {transform:scale(.25,.25);}; 
+	50% {transform:scale(.50,.50);}; 
+	100% {transform:scale(1,1);}; 
+}
+
+-ms-@keyframes bubble {
+	0% {transform:scale(.25,.25);}; 
+	50% {transform:scale(.50,.50);}; 
+	100% {transform:scale(1,1);}; 
+}
+
+-moz-@keyframes bubble {
+	0% {transform:scale(.25,.25);}; 
+	50% {transform:scale(.50,.50);}; 
+	100% {transform:scale(1,1);}; 
+}
+
+-o-@keyframes bubble {
+	0% {transform:scale(.25,.25);}; 
+	50% {transform:scale(.50,.50);}; 
+	100% {transform:scale(1,1);}; 
+}
+
+@keyframes bubble {
+	0% {transform:scale(.25,.25);}; 
+	50% {transform:scale(.50,.50);}; 
+	100% {transform:scale(1,1);}; 
+}
+
+.blurb{
+	text-align: center;
+	margin:25px auto;
+	width:75%;
+	height:75%;
+	border:3px solid #000;
+	font-family: 'Droid Sans', sans-serif;
+	-webkit-box-shadow: 10px 10px 5px #888888;
+	-moz-box-shadow: 10px 10px 5px #888888;
+	-ms-box-shadow: 10px 10px 5px #888888;
+	box-shadow: 10px 10px 5px #888888;
+	border-radius: 175px;
+	-ms-animation-name:bubble;
+	-ms-animation-duration:.5s;
+	-ms-animation-timing-function: ease-in-out; 
+	-o-animation-name:bubble;
+	-o-animation-duration:.5s;
+	-o-animation-timing-function: ease-in-outo
+	-moz-animation-name:bubble;
+	-moz-animation-duration:.5s;
+	-moz-animation-timing-function: ease-in-out; 
+	-webkit-animation-name:bubble;
+	-webkit-animation-duration:.5s;
+	-webkit-animation-timing-function: ease-in-out; 
+	animation-name:bubble;
+	animation-duration:.5s;
+	animation-timing-function: ease-in-out; 
+	
+}
+
+
+
+article {
+	padding:75px;
+	height:100%;
+	width:100%;
+	-webkit-animation-name:fadeIn;
+	-webkit-animation-duration: 1.5s; 
+	-webkit-animation-timing-function: ease-in;
+	-moz-animation-name:fadeIn;
+	-moz-animation-duration: 1.5s; 
+	-moz-animation-timing-function: ease-in;
+	-ms-animation-name:fadeIn;
+	-ms-animation-duration: 1.5s; 
+	-ms-animation-timing-function: ease-in;
+	-o-animation-name:fadeIn;
+	-o-animation-duration: 1.5s; 
+	-o-animation-timing-function: ease-in;
+	animation-name:fadeIn;
+	animation-duration: 1.5s; 
+	animation-timing-function: ease-in;
+
+}
+
+a{
+	color:#f58c24;
+}
+
+.blurb img{
+	width:175px;
+	height:175px;
+	border:hidden;
+	border-radius:80%;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.title{
+	font-size:2.5em;
+	font-family: 'Mouse Memoirs', sans-serif;
+}
+
+.description{
+	font-size:1.2em;
+}
+
+.info-header{
+	padding:10px;
+}
+
+
+.description{
+	font-style:italic;
+}
+
+.author-date {
+	font-size:1em;
+	color:#f58c24;
+}
+
+.article-body{
+	margin:15px;
+	padding:10px;
+	font-size:1.5em;
+}
+.comment-drop-down{
+	text-align: center; 
+	cursor: pointer;
+	font-family: 'Wendy One', sans-serif;
+
+}
+.comments{
+	width:100%;
+	overflow: scroll;
+	max-height:0px; 
+	border:hidden;
+	-webkit-transition:max-height .5s;
+	-moz-transition:max-height .5s;
+	-ms-transition:max-height .5s;
+	-o-transition:max-height .5s;
+	transition: max-height .5s; 
+
+}
+
+.active{
+	height:150px;
+	max-height: 150px;
+	border:1px solid #000;
+	
+}
+
+.comment{
+	border-top:1px solid gray;
+	border-bottom:1px solid gray;
+	vertical-align: middle;
+}
+
+
+.comment-box{
+	outline: none; 
+}
+
+.add-btn{
+	padding:5px;
+	color:#fff;
+	background-color:#f58c24;
+	border:none;
+	margin:0px 5px; 
+}
+
+.expand-btn{
+	color:#f58c24;
+}
+
+
+.delete-btn{
+	margin-top:5px; 
+	margin-right:20px;
+	color:#f58c24;
+	cursor:pointer;
+	float:right;
+}
+
+.add-comments{
+	margin:25px;
+	font-family: 'Wendy One', sans-serif;
+	text-align: center;
+	clear:both;
 }

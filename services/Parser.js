@@ -10,14 +10,17 @@ const Parser = (html)=>{
         let news = {
             items:[]
         }; 
-        //iterates over each news item and extracts meaningful data
+        //iterates over each element with a news item class and extracts meaningful data
         $('.news-item').each(function(i, element) {
             try {
                 //new empty result object 
                 let result = {};
                 //sets the properties of the new results object equal the the html attributes and values
                 result.title = $(this).children('h2').children('a').text();
-                result.img = $(this).children('.body,clearfix').children('img').attr('src'); 
+                result.description = $(this).children('h3').children('a').text(); 
+                result.img = $(this).children('.body,clearfix').children('img').attr('src');
+                result.author= $(this).children('.news-header2').children('.byline-and-post-date').children('.byline').children('a').text();  
+                result.postDate= $(this).children('.news-header2').children('.byline-and-post-date').children('.post-date').text(); 
                 result.link = $(this).children('h2').children('a').attr('href');  
                 result.body = $(this).children('.body,clearfix').children('.short').children('p').text(); 
  

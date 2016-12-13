@@ -52,7 +52,7 @@ router.get('/articles' , (req, res)=>{
 router.get('/latest' , (req, res)=>{
 	Article.find()
 				.sort({'postDate':-1})
-					.limit(15)
+					.limit(50)
 						.populate('comments')
 							.exec((err, articles)=>{
 								if(err){

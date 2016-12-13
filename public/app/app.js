@@ -65,7 +65,7 @@ var renderBlurb = function(blurb){
     var commentContainer = $('<div>')
       .addClass('comments');
 
-    var expand = $(' <i class="fa fa-plus fa-lg"></i>')
+    var expand = $('<i class="fa fa-plus fa-lg"></i>')
       .addClass('expand-btn'); 
 
        var commentsDropDown = $('<div>')
@@ -74,6 +74,8 @@ var renderBlurb = function(blurb){
           .append(expand); 
             expand.on('click' , function(event){
                 commentContainer.toggleClass('active');
+                expand.toggleClass('fa fa-plus fa-lg'); 
+                expand.toggleClass('fa fa-minus fa-lg');
 
             })
             
@@ -169,12 +171,15 @@ var addBlurb = function(list ,render){
 }
 
 //gets the latest articles from the db
-$.get('/latest').done(function(articles){
-  articles.forEach(function(article){
-   crunchyList.push(article); 
-  }); 
-  //call to add a blurb; 
-  addBlurb(crunchyList, renderBlurb); 
+$.get('/scrape').done(function(res){
+      console.log(res.msg);
+      $.get('/latest').done(function(articles){
+    articles.forEach(function(article){
+     crunchyList.push(article); 
+    }); 
+    //call to add a blurb; 
+    addBlurb(crunchyList, renderBlurb); 
+  })
 })
 
 

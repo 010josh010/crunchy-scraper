@@ -14,6 +14,28 @@
 	width:50px;
 }
 
+.welcome {
+	padding:25px;
+	margin:10px;
+}
+
+.welcome img{
+	float:left;
+	width:50%;
+}
+
+.welcome p{
+	width:30%;
+	margin-top:25%;
+	font-size:2em;
+	font-family:'Mouse Memoirs' , sans-serif;
+	float:left;
+}
+
+.clear-fix{
+	clear:both;
+}
+
 -webkit-@keyframes fadeIn{
 	0% {opacity: 0 }; 
 	50% {opacity: .5}; 
@@ -75,11 +97,12 @@
 }
 
 .blurb{
+	clear:both;
 	text-align: center;
 	margin:25px auto;
 	width:75%;
 	height:75%;
-	border:3px solid #000;
+	border:5px solid #000;
 	font-family: 'Droid Sans', sans-serif;
 	-webkit-box-shadow: 10px 10px 5px #888888;
 	-moz-box-shadow: 10px 10px 5px #888888;
@@ -91,7 +114,7 @@
 	-ms-animation-timing-function: ease-in-out; 
 	-o-animation-name:bubble;
 	-o-animation-duration:.5s;
-	-o-animation-timing-function: ease-in-outo
+	-o-animation-timing-function: ease-in-out; 
 	-moz-animation-name:bubble;
 	-moz-animation-duration:.5s;
 	-moz-animation-timing-function: ease-in-out; 
@@ -107,7 +130,7 @@
 
 
 article {
-	padding:75px;
+	padding:50px;
 	height:100%;
 	width:100%;
 	-webkit-animation-name:fadeIn;
@@ -170,7 +193,6 @@ a{
 }
 .comment-drop-down{
 	text-align: center; 
-	cursor: pointer;
 	font-family: 'Wendy One', sans-serif;
 
 }
@@ -215,6 +237,8 @@ a{
 
 .expand-btn{
 	color:#f58c24;
+	margin-left:5px;
+	cursor:pointer;
 }
 
 
@@ -232,3 +256,34 @@ a{
 	text-align: center;
 	clear:both;
 }
+
+
+@media screen and (max-width:624px){
+
+	.blurb{
+		border:hidden;
+		box-shadow: none ; 
+	}
+
+	article{
+		padding:15px;
+	}
+
+	.title{
+		font-size:2em;
+	}
+
+	.article-body{
+
+		font-size:1.2em;
+	}
+
+	.welcome p{
+		font-size:1.2em;
+	}
+
+}
+
+
+
+

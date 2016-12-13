@@ -13,7 +13,7 @@ const Article = require('../models/Article.js');
 const Comment = require('../models/Comment.js'); 
 
 /*Database configuration with mongoose begin----------*/
-mongoose.connect('mongodb://localhost/crunchyNewsdb');
+mongoose.connect('mongodb://heroku_rq20k72c:lq7h15c1ius5rbq2457ldv5fm4@ds133368.mlab.com:33368/heroku_rq20k72c');
 var db = mongoose.connection;
 //configuring mongoose to use native promises due to mpromise deprecation
 mongoose.promise = global.Promise; 

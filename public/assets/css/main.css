@@ -279,8 +279,17 @@ a{
 	}
 
 	.welcome p{
-		font-size:1.2em;
+		font-size:1.7em;
+		width:100%;
+	
 	}
+
+	.welcome img{
+		width:100%;
+		margin:0 auto;
+		text-align: center;
+	}
+
 
 }
 

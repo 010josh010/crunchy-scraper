@@ -11,7 +11,7 @@ const helmet = require('helmet');
 
 //express init and port 
 const app = express(); 
-const PORT = 9001;  
+const PORT = process.env.PORT; 
 
 
 /*middleware---------------------*/  
@@ -44,4 +44,4 @@ app.use('/' , mainController);
 
 
 //listening for connections 
-app.listen(PORT , _=> console.log('listening on port' , PORT)); 
+app.listen(PORT || 5000, _=> console.log('listening on port' , PORT)); 

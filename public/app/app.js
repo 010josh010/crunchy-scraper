@@ -185,7 +185,7 @@ $.get('/scrape').done(function(res){
 
 //scroll function handler to add a blurb when at the bottom of the page
 var scrolledToBottom = function(){
-   if($(window).scrollTop() + $(window).height() == $(document).height()-10) {
+   if($(window).scrollTop() + $(window).height() >= $(document).height()-20) {
         //call to addBlurb to render a new blurb on the page 
         addBlurb(crunchyList, renderBlurb)
    }

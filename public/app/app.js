@@ -4,7 +4,7 @@
 var LinkedList = function(){  
   this.head = null;
 }
-//for Linked List push prototype method
+//for adding items to our linked list
 LinkedList.prototype.push = function(val){
     var node = {
        value: val,
@@ -22,7 +22,7 @@ LinkedList.prototype.push = function(val){
       current.next = node;
     }
   }
-//new crunchyList 
+//new list instantiation 
 var crunchyList = new LinkedList();
 
 //function to render a blurb 
@@ -174,9 +174,9 @@ var addBlurb = function(list ,render){
 $.get('/scrape').done(function(res){
       console.log(res.msg);
       $.get('/latest').done(function(articles){
-    articles.forEach(function(article){
-     crunchyList.push(article); 
-    }); 
+        articles.forEach(function(article){
+         crunchyList.push(article); 
+      }); 
     //call to add a blurb; 
     addBlurb(crunchyList, renderBlurb); 
   })
@@ -185,12 +185,12 @@ $.get('/scrape').done(function(res){
 
 //scroll function handler to add a blurb when at the bottom of the page
 var scrolledToBottom = function(){
-   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+   if($(window).scrollTop() + $(window).height() == $(document).height()-10) {
         //call to addBlurb to render a new blurb on the page 
         addBlurb(crunchyList, renderBlurb)
    }
 }
-//setting the scroll listener on the window to our function handler
+//setting the scroll event listener on the window to our function handler
 $(window).scroll(scrolledToBottom); 
   
 

@@ -49,7 +49,7 @@ router.get('/articles' , (req, res)=>{
 							}
 						}); 
 }); 
-//route to return the last 15 articles in the db 
+//route to return the last 50 articles in the db 
 router.get('/latest' , (req, res)=>{
 	Article.find()
 				.sort({'postDate':-1})

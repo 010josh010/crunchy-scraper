@@ -298,14 +298,20 @@ a{
 	}
 
 	.welcome p{
+		margin-top:10px;
 		font-size:1.7em;
 		width:100%;
 	
 	}
 
 	.welcome img{
-		width:100%;
 		margin:0 auto;
+		width:100%;
+		transform:scale(.75 , .75); 
+		-webkit-transform:scale(.75 , .75);
+		-ms-transform:scale(.75 , .75);
+		-moz-transform:scale(.75 , .75); 
+		-o-transform:scale(.75 , .75);  
 		text-align: center;
 	}
 

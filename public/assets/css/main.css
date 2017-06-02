@@ -12,6 +12,8 @@
 .logo img {
 	height:50px;
 	width:50px;
+	border:hidden; 
+	border-radius:80%; 
 }
 
 .welcome {

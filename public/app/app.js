@@ -80,12 +80,14 @@ var renderBlurb = function(blurb){
             })
             
     //function for creating a new comment 
-    var createComment = function(comment){
+    var appendComment = function(comment){
        var newComment = $('<div>')
             .attr('id' , comment._id)
               .addClass('comment');  
+
             var commentBody = $('<p>')
               .text(comment.body); 
+
             var deleteBtn = $('<i class="fa fa-trash-o delete-btn"></i>')
               .on('click' , function(event){
                 event.preventDefault(); 
@@ -101,10 +103,27 @@ var renderBlurb = function(blurb){
               //append to the commentContainer 
               commentContainer.append(newComment); 
     }
-    //loop through blurbs and add them to the commentContainer
+
+      //loop through blurbs and add them to the commentContainer
       blurb.value.comments.forEach(function(comment){
-            createComment(comment); 
+            appendComment(comment); 
       })
+
+    var postComment = function(event){
+            event.preventDefault();
+            var data = { 
+                body: commentBox.val(), 
+                articleRef: blurb.value._id
+            }
+            $.post({url:'/comment/add' , data:data})
+              .done(function(response){
+                var addedComment = response.comments[response.comments.length-1]; 
+                commentBox.val(''); 
+                appendComment(addedComment);
+
+              }) 
+      }
+  
         //creating inputs for comments 
         var inputContainer = $('<div>')
           .addClass('add-comments')
@@ -113,24 +132,21 @@ var renderBlurb = function(blurb){
 
           var commentBox = $('<textarea>')
             .addClass('comment-box')
-              .attr('placeholder' , 'comment'); 
+              .attr('placeholder' , 'comment')
+                .on('keyup' , function(event){
+                  var key = event.keyCode;
+                  var enter = 13; 
+
+                  if(key === enter){
+                    postComment(event); 
+                  }
+                }) 
 
           var addBtn = $('<button>')
             .text('Add') 
               .addClass('add-btn')
               .on('click' , function(event){
-                  event.preventDefault();
-                  var data = { 
-                      body: commentBox.val(), 
-                      articleRef: blurb.value._id
-                  }
-                  $.post({url:'/comment/add' , data:data})
-                    .done(function(response){
-                      var addedComment = response.comments[response.comments.length-1]; 
-                      commentBox.val(''); 
-                      createComment(addedComment);
-
-                    }) 
+                postComment(event);
               }); 
 
       //element for linking back to the source document
@@ -177,7 +193,7 @@ $.get('/scrape').done(function(res){
         articles.forEach(function(article){
          crunchyList.push(article); 
       }); 
-    //call to add a blurb; 
+    //call to add a blurb for the first article 
     addBlurb(crunchyList, renderBlurb); 
   })
 })

@@ -12,8 +12,6 @@
 .logo img {
 	height:50px;
 	width:50px;
-	border: 1px solid #fff;  
-	border-radius:80%; 
 }
 
 .welcome {
@@ -24,6 +22,8 @@
 .welcome img{
 	float:left;
 	width:50%;
+	border: 1px solid #fff;  
+	border-radius:80%; 
 }
 
 .welcome p{
@@ -207,8 +207,14 @@ a{
 	-moz-transition:max-height .5s;
 	-ms-transition:max-height .5s;
 	-o-transition:max-height .5s;
-	transition: max-height .5s; 
+	transition: max-height .5s;
+	overflow: scroll;
+	-ms-overflow-style: none; 
 
+}
+
+.comments::-webkit-scrollbar{
+	width:0 !important; 
 }
 
 .active{
@@ -226,15 +232,27 @@ a{
 
 
 .comment-box{
-	outline: none; 
+	outline: none;
+	resize:none;
+	width:80%;
+}
+
+.add-comments{
+	margin:25px;
+	font-family: 'Wendy One', sans-serif;
+	text-align: center;
+	clear:both;
 }
 
 .add-btn{
 	padding:5px;
 	color:#fff;
+	position:relative;
+	bottom:10px;
 	background-color:#f58c24;
 	border:none;
-	margin:0px 5px; 
+	margin-left:2px;
+
 }
 
 .expand-btn{
@@ -252,12 +270,7 @@ a{
 	float:right;
 }
 
-.add-comments{
-	margin:25px;
-	font-family: 'Wendy One', sans-serif;
-	text-align: center;
-	clear:both;
-}
+
 
 
 @media screen and (max-width:624px){
@@ -273,6 +286,10 @@ a{
 
 	.title{
 		font-size:2em;
+	}
+
+	.logo{
+		margin-top:35px;
 	}
 
 	.article-body{
